@@ -24,3 +24,16 @@ end
 
 puts decode_word("-- -.--")
 
+def decode_message(param)
+  words = param.split("   ")
+  decoded_words = words.map do |word|
+    characters = word.split(" ")
+    decoded_characters = characters.map { |char| MORSE_CODE[char] || "?" }
+    decoded_characters.join("")
+  end
+  decoded_words.join(" ")
+end
+
+message = ".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ..."
+puts decode_message("-- -.--   -. .- -- .")
+puts decode_message(message)
